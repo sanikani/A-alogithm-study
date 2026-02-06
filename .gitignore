@@ -1,0 +1,41 @@
+# A형 알고리즘 스터디 - Eclipse Java 프로젝트 설정
+
+# Eclipse 워크스페이스 설정 파일들
+.metadata
+.recommenders
+RemoteSystemsTempFiles
+
+# Eclipse 프로젝트 설정 (팀원마다 다를 수 있음)
+.settings/
+.loadpath
+.project
+.classpath
+
+# 빌드 결과물 디렉토리
+bin/
+target/
+build/
+
+# Java 컴파일된 파일들
+*.class
+
+# 패키지 파일들
+*.jar
+*.war
+*.ear
+
+# 로그 및 임시 파일
+*.log
+*.tmp
+*.swp
+*~
+
+# OS 생성 파일들
+.DS_Store
+Thumbs.db
+
+# IDE 특정 파일들
+*.launch
+.factorypath
+.apt_generated
+.apt_generated_tests
