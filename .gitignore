@@ -1,0 +1,116 @@
+############################
+# Eclipse IDE
+############################
+
+.metadata/
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders/
+.project
+.classpath
+.cproject
+.buildpath
+.factorypath
+
+# Eclipse launch configs
+*.launch
+
+# External tool builders
+.externalToolBuilders/
+
+# PDE (Plugin Development Environment)
+.target
+
+############################
+# Java / JVM
+############################
+
+# Compiled class files
+*.class
+
+# Log files
+*.log
+
+# Package files
+*.jar
+*.war
+*.ear
+
+# JVM crash logs
+hs_err_pid*
+replay_pid*
+
+############################
+# Maven
+############################
+
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+
+############################
+# Gradle
+############################
+
+.gradle/
+build/
+out/
+
+############################
+# IntelliJ (혼용 대비)
+############################
+
+.idea/
+*.iml
+*.iws
+*.ipr
+
+############################
+# VS Code (혼용 대비)
+############################
+
+.vscode/
+
+############################
+# OS generated files
+############################
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+
+############################
+# Environment / Secrets
+############################
+
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.jks
+
+############################
+# Logs & temp
+############################
+
+logs/
+*.out
+*.err
+*.pid
