@@ -1,0 +1,63 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Solution_5643_홍성균 {
+    static int N, upper, lower;
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+
+        int T = Integer.parseInt(st.nextToken());
+        for(int t=1;t<=T;t++){
+            st = new StringTokenizer(br.readLine());
+            N = Integer.parseInt(st.nextToken());  //학생 수
+            st = new StringTokenizer(br.readLine());
+            int M = Integer.parseInt(st.nextToken());  //비교 횟수
+            //비교 저장할 배열, 나보다 작은 사람-1, 나보다 큰 사람1
+            int[][] students = new int[N+1][N+1];
+            //M만큼 비교
+            for(int i=0;i<M;i++){
+                st = new StringTokenizer(br.readLine());
+                int me = Integer.parseInt(st.nextToken());
+                int up = Integer.parseInt(st.nextToken());
+                students[me][up] = 1;
+                students[up][me] = -1;
+            }
+            int result = 0;
+
+            for(int i=1;i<=N;i++){
+                boolean[] check1 = new boolean[N+1];
+                upper = 0;
+                findUpperCnt(students, check1, i);
+                boolean[] check2 = new boolean[N+1];
+                lower = 0;
+                findLowerCnt(students, check2, i);
+                if(upper+lower == N-1){
+                    result++;
+                }
+            }
+            System.out.println("#"+t+" "+result);
+        }
+    }
+
+    private static void findUpperCnt(int[][] students, boolean[] check, int me) {
+        for(int i=1;i<=N;i++){
+            if(students[me][i] == 1 && !check[i]){
+                check[i] = true;
+                upper++;
+                findUpperCnt(students,check,i);
+            }
+        }
+    }
+    private static void findLowerCnt(int[][] students, boolean[] check, int me) {
+        for(int i=1;i<=N;i++){
+            if(students[me][i] == -1 && !check[i]){
+                check[i] = true;
+                lower++;
+                findLowerCnt(students,check,i);
+            }
+        }
+    }
+}

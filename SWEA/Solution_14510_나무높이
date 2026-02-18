@@ -1,0 +1,60 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Solution_14510_나무높이 {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+
+        int T = Integer.parseInt(st.nextToken());
+        for (int t = 1; t <= T; t++) {
+            st = new StringTokenizer(br.readLine());
+            int N = Integer.parseInt(st.nextToken());
+
+            st = new StringTokenizer(br.readLine());
+            int[] trees = new int[N];
+            int maxHeight = 0;
+            int count2 = 0;  //길이가 2차이 나는 경우
+            int count1 = 0;  //길이가 1차이 나는 경우
+            for (int i = 0; i < N; i++) {
+                trees[i] = Integer.parseInt(st.nextToken());
+                if (maxHeight < trees[i]) {
+                    maxHeight = trees[i];
+                }
+
+            }
+
+            for (int i = 0; i < N; i++) {
+                count2 += (maxHeight - trees[i]) / 2;
+                count1 += (maxHeight - trees[i]) % 2;
+            }
+            int result = 0;
+//            System.out.println(count2);
+//            System.out.println(count1);
+
+            while ((count2 - count1) > 1) {
+                count2--;
+                count1 += 2;
+            }
+            if (count1 > count2) {
+                result = count2 * 2;
+                count1 -= count2;
+                result += (count1 - 1) * 2 + 1;
+            }
+            //1 2 2 2 2 ==> 1 2 1 2 1 2
+            else if (count2 == count1) {
+                result = count2 * 2;
+            }
+            else if (count2 > count1) {
+                result = count1 * 2;
+                result += 2;
+
+            }
+
+            System.out.println("#" + t + " " + result);
+
+        }
+    }
+}
